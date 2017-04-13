@@ -4,7 +4,7 @@ RSpec.feature "User" do
   describe "visits root" do
     it "can search for stores near their zip code" do
       @service = BestbuyService.new
-      stores = @service.nearby_stores(zip: '80202')
+      stores = @service.nearby_stores('80202')
       store = stores.first
 
       visit '/'
