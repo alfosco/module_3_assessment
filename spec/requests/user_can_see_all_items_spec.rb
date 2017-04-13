@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "User" do
+describe "User" do
     it "sends a GET request to /api/v1/items and receives a 200 JSON response containing all items" do
       item_1 = Item.create!(name: "Laser Disk", description: "The best of the best.", image_url: "qwerty")
       item_2 = Item.create!(name: "VCR", description: "You know you want one.", image_url: "asdfgh")
@@ -9,7 +9,7 @@ RSpec.feature "User" do
       get '/api/v1/items'
 
       expect(response).to be_success
-      expect(page.status_code).to eq(200)
+      expect(response.status).to eq(200)
 
       all_items = JSON.parse(response.body)
 
