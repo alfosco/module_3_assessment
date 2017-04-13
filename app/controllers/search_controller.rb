@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @stores = Store.find_near_zipcode(params[:zip_code])
+    @zip_code = params[:search]
+    @stores = Store.find_near_zipcode(@zip_code)
   end
 end
