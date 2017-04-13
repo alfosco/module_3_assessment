@@ -3,6 +3,10 @@ require "rails_helper"
 RSpec.feature "User" do
   describe "visits root" do
     it "can search for stores near their zip code" do
+      @service = BestbuyService.new
+      stores = @service.nearby_stores(zip: '80202')
+      store = stores.first
+
       visit '/'
 
       fill_in 'zip_code', :with => '80202'
@@ -10,6 +14,12 @@ RSpec.feature "User" do
 
       expect(current_path).to eq('/search')
       expect(page).to have_content("16 Total Stores")
+      expect(stores.count).to eq(10)
+      expect(store[:long_name]).to eq("")
+      expect(store[:city]).to eq("")
+      expect(store[:distance]).to eq("")
+      expect(store[:phone_number]).to eq("")
+      expect(store[:type]).to eq("")
     end
   end
 end
