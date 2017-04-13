@@ -8,8 +8,7 @@ RSpec.feature "User" do
 
       visit '/api/v1/items'
 
-      expect(response).to be_success
-      expect(response.status).to eq(200)
+      expect(page.status_code).to eq(200)
 
       all_items = JSON.parse(response.body)
 
