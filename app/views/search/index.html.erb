@@ -1,0 +1,11 @@
+<h1>16 total stores were found</h1>
+
+<% @stores.each do |store| %>
+  <ul>
+    <li>Store name: <%= store.long_name %></li>
+    <li>City: <%= store.city %></li>
+    <li>Distance: <%= store.distance %></li>
+    <li>Phone Number: <%= store.phone_number %></li>
+    <li>Store type: <%= store.store_type %></li>
+  </ul>
+<% end %>
