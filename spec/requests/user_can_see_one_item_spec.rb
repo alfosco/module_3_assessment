@@ -10,5 +10,11 @@ describe "User" do
 
       expect(response).to be_success
       expect(response.status).to eq(200)
+      expect(item["name"]).to eq("Laser Disk")
+      expect(item["description"]).to eq("The best of the best.")
+      expect(item["image_url"]).to eq("qwerty")
+
+      expect(item).not_to have_key("created_at")
+      expect(item).not_to have_key("updated_at")
     end
 end
